@@ -120,4 +120,10 @@ public class OrderController {
     void handlePlaceOrder(ActionEvent event) {
 
     }
+    
+     @FXML
+    void handleRequestFreeWaterCB(ActionEvent event) {
+
+    }
+    
 }
