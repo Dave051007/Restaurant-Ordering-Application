@@ -66,6 +66,14 @@ public class OrderController {
 
         entreeList.getItems().addAll(items);
         
+        order.setAdditionalSpecialRequests(specialRequestTF.getText());
+        
+        if (waterCheckBox.isSelected()) {
+            order.setWaterSelection(true);
+        } else {
+            order.setWaterSelection(false);
+        }
+        
         entreeList.getSelectionModel().selectedItemProperty().addListener( (obs, oldValue, newValue) -> {
             double price = 0;
             
@@ -81,7 +89,8 @@ public class OrderController {
                 }
             }
 
-            order.setSelectedEntrée(price);
+            order.setSelectedEntrée(newValue);
+            order.setSelectedEntréePrice(price);
             double totalPrice = order.calculateTotalPrice();
             totalPriceLabel.setText("Total: $" + totalPrice);
         });
@@ -103,13 +112,12 @@ public class OrderController {
                 }
             }
 
-            order.setSelectedDrink(price);
+            order.setSelectedDrink(newToggle.toString());
+            order.setSelectedDrinkPrice(price);
             double totalPrice = order.calculateTotalPrice();
             totalPriceLabel.setText("Total: $" + totalPrice);
         });
     }
-    
-    // check box handler -> order(true) -> label "Yes"
 
     @FXML
     void handleClearOrder(ActionEvent event) {
@@ -122,12 +130,8 @@ public class OrderController {
 
     @FXML
     void handlePlaceOrder(ActionEvent event) {
-
+        
     }
     
-     @FXML
-    void handleRequestFreeWaterCB(ActionEvent event) {
-
-    }
     
 }
