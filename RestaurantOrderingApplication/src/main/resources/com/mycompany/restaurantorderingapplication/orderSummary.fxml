@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.restaurantorderingapplication.OrderController">
    <top>
       <Label text="Your Order Summary" BorderPane.alignment="CENTER">
          <font>
@@ -54,28 +54,28 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="..." GridPane.columnIndex="1">
+            <Label fx:id="entreeLabel" text="..." GridPane.columnIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="drinkLabel" text="..." GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="No" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="waterLabel" text="No" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="..." GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="specialRequestLabel" text="..." GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label text="\$0.0" GridPane.columnIndex="2" />
-            <Label text="\$0.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="entreePriceLabel" text="\$0.0" GridPane.columnIndex="2" />
+            <Label fx:id="drinkPriceLabel" text="\$0.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -96,14 +96,14 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label text="\$0.0">
+                  <Label fx:id="totalPriceLabel" text="\$0.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="100.0" mnemonicParsing="false" text="Close">
+            <Button fx:id="closeButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="100.0" mnemonicParsing="false" onAction="#closeSummary" text="Close">
                <font>
                   <Font size="14.0" />
                </font>

@@ -133,5 +133,39 @@ public class OrderController {
         
     }
     
-    
+    public class OrderSummaryController {
+        @FXML
+        private Button closeButton;
+
+        @FXML
+        private Label drinkLabel;
+
+        @FXML
+        private Label drinkPriceLabel;
+
+        @FXML
+        private Label entreeLabel;
+
+        @FXML
+        private Label entreePriceLabel;
+
+        @FXML
+        private Label specialRequestLabel;
+
+        @FXML
+        private Label totalPriceLabel;
+
+        @FXML
+        private Label waterLabel;
+        
+        @FXML
+        void initialize() {
+            
+        }
+
+        @FXML
+        void closeSummary(ActionEvent event) {
+        }
+
+    }
 }
