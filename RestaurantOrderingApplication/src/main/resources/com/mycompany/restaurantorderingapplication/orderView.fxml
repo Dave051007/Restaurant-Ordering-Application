@@ -51,7 +51,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
          <content>
-            <ListView fx:id="entreeList" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="entreeList" />
          </content></TitledPane>
    </left>
    <bottom>

@@ -1,5 +1,7 @@
 package com.mycompany.restaurantorderingapplication;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,7 +24,7 @@ public class OrderController {
     private ToggleGroup drinkSelectionToggle;
 
     @FXML
-    private ListView<?> entreeList;
+    private ListView<String> entreeList;
 
     @FXML
     private RadioButton juiceRB;
@@ -44,10 +46,47 @@ public class OrderController {
 
     @FXML
     private CheckBox waterCheckBox;
+    
+    String[] items = {
+        "Chicken Salad",
+        "Turkey Sandwich",
+        "Vegetable Wrap",
+        "Grilled Cheese"
+    };
+    
+    Order order = new Order();
+    
+    @FXML
+    void initialize() {
+        entreeList.getItems().addAll(items);
+        
+        entreeList.getSelectionModel().selectedItemProperty().addListener( (obs, oldValue, newValue) -> {
+            double price = 0;
+            
+            if (newValue == items[0]) {
+                price = order.getChickenSaladPrice();
+            } else if (newValue == items[1]) {
+                price = order.getTurkeySandwichPrice();
+            } else if (newValue == items[2]) {
+                price = order.getVegetableWrapPrice();
+            } else if (newValue == items[3]) {
+                price = order.getGrilledCheesePrice();
+            }
+
+            order.setSelectedEntrée(price);
+        });
+            
+        
+        // listener -> getDrinkPrice -> set order drink selectedItem
+       
+        // calculate price -> edit toatl price label
+    }
+    
+    // check box handler -> order(true) -> label "Yes"
 
     @FXML
     void handleClearOrder(ActionEvent event) {
-
+        
     }
 
     @FXML

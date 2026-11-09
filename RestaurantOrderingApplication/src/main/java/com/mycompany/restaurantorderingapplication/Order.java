@@ -26,10 +26,25 @@ public class Order {
     private String additionalSpecialRequests;
     private boolean waterSelection;
 
-    public Order(double selectedEntrée, double selectedDrink, String additionalSpecialRequests, boolean waterSelection) {
+    public Order() {
+        this.selectedEntrée = 0;
+        this.selectedDrink = 0;
+        this.waterSelection = false;
+    }
+
+    public void setSelectedEntrée(double selectedEntrée) {
         this.selectedEntrée = selectedEntrée;
+    }
+
+    public void setSelectedDrink(double selectedDrink) {
         this.selectedDrink = selectedDrink;
+    }
+
+    public void setAdditionalSpecialRequests(String additionalSpecialRequests) {
         this.additionalSpecialRequests = additionalSpecialRequests;
+    }
+
+    public void setWaterSelection(boolean waterSelection) {
         this.waterSelection = waterSelection;
     }
     
