@@ -54,10 +54,18 @@ public class OrderController {
         "Grilled Cheese"
     };
     
-    Order order = new Order();
+    String[] drinks = {
+        "Coffee", 
+        "Tea", 
+        "Soda", 
+        "Juice"
+    };
+    
     
     @FXML
     void initialize() {
+        Order order = new Order();
+
         entreeList.getItems().addAll(items);
         
         entreeList.getSelectionModel().selectedItemProperty().addListener( (obs, oldValue, newValue) -> {
@@ -74,12 +82,31 @@ public class OrderController {
             }
 
             order.setSelectedEntrée(price);
+            double totalPrice = order.calculateTotalPrice();
+            totalPriceLabel.setText("Total: $" + totalPrice);
         });
             
-        
-        // listener -> getDrinkPrice -> set order drink selectedItem
-       
-        // calculate price -> edit toatl price label
+        drinkSelectionToggle.selectedToggleProperty().addListener((obs, oldToggle, newToggle) -> {
+            double price = 0;
+            
+            if (newToggle != null) {
+                RadioButton selected = (RadioButton) newToggle;
+                
+                if (selected.getText().equals(drinks[0])) {
+                    price = order.getCoffeePrice();
+                } else if (selected.getText().equals(drinks[1])) {
+                    price = order.getTeaPrice();
+                } else if (selected.getText().equals(drinks[2])) {
+                    price = order.getSodaPrice();
+                } else if (selected.getText().equals(drinks[3])) {
+                    price = order.getJuicePrice();
+                }
+            }
+
+            order.setSelectedDrink(price);
+            double totalPrice = order.calculateTotalPrice();
+            totalPriceLabel.setText("Total: $" + totalPrice);
+        });
     }
     
     // check box handler -> order(true) -> label "Yes"
