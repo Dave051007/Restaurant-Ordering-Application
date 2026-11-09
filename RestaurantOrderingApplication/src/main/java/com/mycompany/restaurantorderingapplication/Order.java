@@ -20,4 +20,16 @@ public class Order {
     private final double teaPrice = 1.50;
     private final double sodaPrice = 2.00;
     private final double juicePrice = 1.75;
+    
+    private String selectedEntrée;
+    private String selectedDrink;
+    private String additionalSpecialRequests;
+    private boolean waterSelection;
+
+    public Order(String selectedEntrée, String selectedDrink, String additionalSpecialRequests, boolean waterSelection) {
+        this.selectedEntrée = selectedEntrée;
+        this.selectedDrink = selectedDrink;
+        this.additionalSpecialRequests = additionalSpecialRequests;
+        this.waterSelection = waterSelection;
+    }
 }
