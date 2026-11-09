@@ -1,7 +1,5 @@
 package com.mycompany.restaurantorderingapplication;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,24 +59,26 @@ public class OrderController {
         "Juice"
     };
     
+    Order order = new Order();
     
     @FXML
     void initialize() {
-        Order order = new Order();
 
         entreeList.getItems().addAll(items);
         
         entreeList.getSelectionModel().selectedItemProperty().addListener( (obs, oldValue, newValue) -> {
             double price = 0;
             
-            if (newValue == items[0]) {
-                price = order.getChickenSaladPrice();
-            } else if (newValue == items[1]) {
-                price = order.getTurkeySandwichPrice();
-            } else if (newValue == items[2]) {
-                price = order.getVegetableWrapPrice();
-            } else if (newValue == items[3]) {
-                price = order.getGrilledCheesePrice();
+            if (newValue != null) {
+                if (newValue == items[0]) {
+                    price = order.getChickenSaladPrice();
+                } else if (newValue == items[1]) {
+                    price = order.getTurkeySandwichPrice();
+                } else if (newValue == items[2]) {
+                    price = order.getVegetableWrapPrice();
+                } else if (newValue == items[3]) {
+                    price = order.getGrilledCheesePrice();
+                }
             }
 
             order.setSelectedEntrée(price);
@@ -113,7 +113,11 @@ public class OrderController {
 
     @FXML
     void handleClearOrder(ActionEvent event) {
-        
+        entreeList.getSelectionModel().clearSelection();
+        drinkSelectionToggle.selectToggle(null);
+        waterCheckBox.setSelected(false);
+        totalPriceLabel.setText("Total: $0.0");
+        specialRequestTF.setText("");
     }
 
     @FXML

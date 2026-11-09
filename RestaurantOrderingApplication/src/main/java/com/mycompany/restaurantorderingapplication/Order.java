@@ -31,6 +31,10 @@ public class Order {
         this.selectedDrink = 0;
         this.waterSelection = false;
     }
+    
+    public double calculateTotalPrice() {
+        return selectedEntrée + selectedDrink;
+    }
 
     public void setSelectedEntrée(double selectedEntrée) {
         this.selectedEntrée = selectedEntrée;
@@ -48,10 +52,6 @@ public class Order {
         this.waterSelection = waterSelection;
     }
     
-    public double calculateTotalPrice() {
-        return selectedEntrée + selectedDrink;
-    }
-
     public double getChickenSaladPrice() {
         return chickenSaladPrice;
     }
