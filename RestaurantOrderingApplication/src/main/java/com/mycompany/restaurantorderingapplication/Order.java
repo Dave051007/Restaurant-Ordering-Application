@@ -21,16 +21,20 @@ public class Order {
     private final double sodaPrice = 2.00;
     private final double juicePrice = 1.75;
     
-    private String selectedEntrée;
-    private String selectedDrink;
+    private double selectedEntrée;
+    private double selectedDrink;
     private String additionalSpecialRequests;
     private boolean waterSelection;
 
-    public Order(String selectedEntrée, String selectedDrink, String additionalSpecialRequests, boolean waterSelection) {
+    public Order(double selectedEntrée, double selectedDrink, String additionalSpecialRequests, boolean waterSelection) {
         this.selectedEntrée = selectedEntrée;
         this.selectedDrink = selectedDrink;
         this.additionalSpecialRequests = additionalSpecialRequests;
         this.waterSelection = waterSelection;
+    }
+    
+    public double calculateTotalPrice() {
+        return selectedEntrée + selectedDrink;
     }
 
     public double getChickenSaladPrice() {
