@@ -32,4 +32,38 @@ public class Order {
         this.additionalSpecialRequests = additionalSpecialRequests;
         this.waterSelection = waterSelection;
     }
+
+    public double getChickenSaladPrice() {
+        return chickenSaladPrice;
+    }
+
+    public double getTurkeySandwichPrice() {
+        return turkeySandwichPrice;
+    }
+
+    public double getVegetableWrapPrice() {
+        return vegetableWrapPrice;
+    }
+
+    public double getGrilledCheesePrice() {
+        return grilledCheesePrice;
+    }
+
+    public double getCoffeePrice() {
+        return coffeePrice;
+    }
+
+    public double getTeaPrice() {
+        return teaPrice;
+    }
+
+    public double getSodaPrice() {
+        return sodaPrice;
+    }
+
+    public double getJuicePrice() {
+        return juicePrice;
+    }
+    
+    
 }
