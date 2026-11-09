@@ -21,27 +21,41 @@ public class Order {
     private final double sodaPrice = 2.00;
     private final double juicePrice = 1.75;
     
-    private double selectedEntrée;
-    private double selectedDrink;
+    private double selectedEntréePrice;
+    private double selectedDrinkPrice;
+    
+    private String selectedEntrée;
+    private String selectedDrink;
+    
     private String additionalSpecialRequests;
     private boolean waterSelection;
 
     public Order() {
-        this.selectedEntrée = 0;
-        this.selectedDrink = 0;
+        this.selectedEntréePrice = 0;
+        this.selectedDrinkPrice = 0;
+        this.selectedEntrée = null;
+        this.selectedDrink = null;
         this.waterSelection = false;
     }
     
     public double calculateTotalPrice() {
-        return selectedEntrée + selectedDrink;
+        return selectedEntréePrice + selectedDrinkPrice;
     }
 
-    public void setSelectedEntrée(double selectedEntrée) {
+    public void setSelectedEntrée(String selectedEntrée) {
         this.selectedEntrée = selectedEntrée;
     }
 
-    public void setSelectedDrink(double selectedDrink) {
+    public void setSelectedDrink(String selectedDrink) {
         this.selectedDrink = selectedDrink;
+    }
+    
+    public void setSelectedEntréePrice(double selectedEntréePrice) {
+        this.selectedEntréePrice = selectedEntréePrice;
+    }
+
+    public void setSelectedDrinkPrice(double selectedDrinkPrice) {
+        this.selectedDrinkPrice = selectedDrinkPrice;
     }
 
     public void setAdditionalSpecialRequests(String additionalSpecialRequests) {
@@ -83,6 +97,30 @@ public class Order {
     public double getJuicePrice() {
         return juicePrice;
     }
-    
+
+    public double getSelectedEntréePrice() {
+        return selectedEntréePrice;
+    }
+
+    public double getSelectedDrinkPrice() {
+        return selectedDrinkPrice;
+    }
+
+    public String getSelectedEntrée() {
+        return selectedEntrée;
+    }
+
+    public String getSelectedDrink() {
+        return selectedDrink;
+    }
+
+    public String getAdditionalSpecialRequests() {
+        return additionalSpecialRequests;
+    }
+
+    public boolean isWaterSelection() {
+        return waterSelection;
+    }
+
     
 }
