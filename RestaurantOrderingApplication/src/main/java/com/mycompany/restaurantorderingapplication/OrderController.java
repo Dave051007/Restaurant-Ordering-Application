@@ -4,9 +4,7 @@ import java.io.IOException;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -14,7 +12,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
 
 public class OrderController {
 
@@ -178,5 +175,21 @@ public class OrderController {
     @FXML
     void clearSpecialRequests(ActionEvent event) {
         specialRequestTF.clear();
+    }
+    
+    @FXML
+    void showInfo(ActionEvent event) {
+        Alert aboutAlert = new Alert(Alert.AlertType.INFORMATION);
+
+        aboutAlert.setTitle("About");
+        aboutAlert.setHeaderText("Restaurant Ordering Application");
+
+        aboutAlert.setContentText(
+            "Application: Restaurant Ordering Application\n" +
+            "Version: 1.0\n" +
+            "Developer: Lauren Dave Fermin"
+        );
+
+        aboutAlert.showAndWait();
     }
 }
