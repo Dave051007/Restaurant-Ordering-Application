@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.stage.Stage;
 
 public class OrderSummaryController {
@@ -39,7 +40,9 @@ public class OrderSummaryController {
         
     @FXML
     void closeSummary(ActionEvent event) {
-        
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        stage.close();
     }   
 }
     
