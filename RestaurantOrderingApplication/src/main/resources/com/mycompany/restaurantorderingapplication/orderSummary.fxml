@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.restaurantorderingapplication.OrderController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.restaurantorderingapplication.OrderSummaryController">
    <top>
       <Label text="Your Order Summary" BorderPane.alignment="CENTER">
          <font>
@@ -91,12 +91,12 @@
             <Line endX="237.69288635253906" endY="-1.7497131824493408" startX="-100.0" stroke="#c1baba" />
             <HBox spacing="200.0">
                <children>
-                  <Label text="Total:">
+                  <Label prefHeight="36.0" prefWidth="142.0" text="Total:">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalPriceLabel" text="\$0.0">
+                  <Label fx:id="totalPriceLabel" prefHeight="36.0" prefWidth="105.0" text="\$0.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>

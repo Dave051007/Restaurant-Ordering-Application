@@ -66,7 +66,13 @@ public class OrderController {
 
         entreeList.getItems().addAll(items);
         
-        order.setAdditionalSpecialRequests(specialRequestTF.getText());
+        specialRequestTF.textProperty().addListener((obs, oldValue, newValue) -> {
+            order.setAdditionalSpecialRequests(newValue);
+        });
+
+        waterCheckBox.selectedProperty().addListener((obs, oldValue, newValue) -> {
+            order.setWaterSelection(newValue);
+        });
         
         if (waterCheckBox.isSelected()) {
             order.setWaterSelection(true);
@@ -78,13 +84,13 @@ public class OrderController {
             double price = 0;
             
             if (newValue != null) {
-                if (newValue == items[0]) {
+                if (newValue.equals(items[0])) {
                     price = order.getChickenSaladPrice();
-                } else if (newValue == items[1]) {
+                } else if (newValue.equals(items[1])) {
                     price = order.getTurkeySandwichPrice();
-                } else if (newValue == items[2]) {
+                } else if (newValue.equals(items[2])) {
                     price = order.getVegetableWrapPrice();
-                } else if (newValue == items[3]) {
+                } else if (newValue.equals(items[3])) {
                     price = order.getGrilledCheesePrice();
                 }
             }
@@ -110,9 +116,10 @@ public class OrderController {
                 } else if (selected.getText().equals(drinks[3])) {
                     price = order.getJuicePrice();
                 }
+                
+                order.setSelectedDrink(selected.getText());
             }
 
-            order.setSelectedDrink(newToggle.toString());
             order.setSelectedDrinkPrice(price);
             double totalPrice = order.calculateTotalPrice();
             totalPriceLabel.setText("Total: $" + totalPrice);
@@ -131,41 +138,5 @@ public class OrderController {
     @FXML
     void handlePlaceOrder(ActionEvent event) {
         
-    }
-    
-    public class OrderSummaryController {
-        @FXML
-        private Button closeButton;
-
-        @FXML
-        private Label drinkLabel;
-
-        @FXML
-        private Label drinkPriceLabel;
-
-        @FXML
-        private Label entreeLabel;
-
-        @FXML
-        private Label entreePriceLabel;
-
-        @FXML
-        private Label specialRequestLabel;
-
-        @FXML
-        private Label totalPriceLabel;
-
-        @FXML
-        private Label waterLabel;
-        
-        @FXML
-        void initialize() {
-            
-        }
-
-        @FXML
-        void closeSummary(ActionEvent event) {
-        }
-
     }
 }
