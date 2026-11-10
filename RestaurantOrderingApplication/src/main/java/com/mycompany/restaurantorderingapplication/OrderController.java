@@ -142,21 +142,21 @@ public class OrderController {
 
     @FXML
     void handlePlaceOrder(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(
-        getClass().getResource("orderSummary.fxml")
-        );
+        order.placeOrder(order);
+    }
+    
+    @FXML
+    void exitApplication(ActionEvent event) {
         
-        Parent root = loader.load();
-        
-        OrderSummaryController controller = loader.getController();
+    }
 
-        controller.initialize(order);
-        
-        Scene scene = new Scene(root);
+    @FXML
+    void handleMenuClearOrder(ActionEvent event) {
 
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Order Summary");
-        stage.show();
+    }
+
+    @FXML
+    void handleMenuPlaceOrder(ActionEvent event) {
+
     }
 }

@@ -4,6 +4,12 @@
  */
 package com.mycompany.restaurantorderingapplication;
 
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
  *
  * @author 6375254
@@ -40,6 +46,25 @@ public class Order {
     
     public double calculateTotalPrice() {
         return selectedEntréePrice + selectedDrinkPrice;
+    }
+    
+    public void placeOrder(Order order) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+        getClass().getResource("orderSummary.fxml")
+        );
+        
+        Parent root = loader.load();
+        
+        OrderSummaryController controller = loader.getController();
+
+        controller.initialize(order);
+        
+        Scene scene = new Scene(root);
+
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Order Summary");
+        stage.show();
     }
 
     public void setSelectedEntrée(String selectedEntrée) {

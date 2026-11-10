@@ -23,7 +23,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#handleMenuPlaceOrder" text="Place Order" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleMenuClearOrder" text="Clear Order" />
+                  <MenuItem mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
