@@ -148,6 +148,10 @@ public class OrderController {
         
         Parent root = loader.load();
         
+        OrderSummaryController controller = loader.getController();
+
+        controller.initialize(order);
+        
         Scene scene = new Scene(root);
 
         Stage stage = new Stage();
