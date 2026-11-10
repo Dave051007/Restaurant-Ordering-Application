@@ -9,7 +9,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * JavaFX App: Restaurant Ordering Application
+ * Author: Lauren Dave Fermin
+ * GitHub: https://github.com/Dave051007/Restaurant-Ordering-Application.git
  */
 public class App extends Application {
 
