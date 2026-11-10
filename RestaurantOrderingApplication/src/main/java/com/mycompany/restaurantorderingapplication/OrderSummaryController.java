@@ -38,6 +38,24 @@ public class OrderSummaryController {
 
     private Order order;
         
+    public void initialize(Order order) {
+        this.order = order;
+
+        entreeLabel.setText(order.getSelectedEntrée());
+        drinkLabel.setText(order.getSelectedDrink());
+
+        entreePriceLabel.setText("$" + order.getSelectedEntréePrice());
+        drinkPriceLabel.setText("$" + order.getSelectedDrinkPrice());
+
+        boolean waterSelected = order.isWaterSelection();
+        String isSelected = (waterSelected) ? "Yes" : "No";
+        waterLabel.setText(isSelected);
+
+        specialRequestLabel.setText(order.getAdditionalSpecialRequests());
+
+        totalPriceLabel.setText("$" + order.calculateTotalPrice());
+    }
+    
     @FXML
     void closeSummary(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
