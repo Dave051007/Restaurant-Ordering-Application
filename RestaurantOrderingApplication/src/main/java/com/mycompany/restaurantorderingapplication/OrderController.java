@@ -1,6 +1,7 @@
 package com.mycompany.restaurantorderingapplication;
 
 import java.io.IOException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -130,14 +131,18 @@ public class OrderController {
             totalPriceLabel.setText("Total: $" + totalPrice);
         });
     }
-
-    @FXML
-    void handleClearOrder(ActionEvent event) {
+    
+    private void clearOrder() {
         entreeList.getSelectionModel().clearSelection();
         drinkSelectionToggle.selectToggle(null);
         waterCheckBox.setSelected(false);
         totalPriceLabel.setText("Total: $0.0");
         specialRequestTF.setText("");
+    }
+
+    @FXML
+    void handleClearOrder(ActionEvent event) {
+        clearOrder();
     }
 
     @FXML
@@ -147,16 +152,16 @@ public class OrderController {
     
     @FXML
     void exitApplication(ActionEvent event) {
-        
+        Platform.exit();
     }
 
     @FXML
     void handleMenuClearOrder(ActionEvent event) {
-
+        clearOrder();
     }
 
     @FXML
-    void handleMenuPlaceOrder(ActionEvent event) {
-
+    void handleMenuPlaceOrder(ActionEvent event) throws IOException {
+        order.placeOrder(order);
     }
 }
