@@ -164,4 +164,19 @@ public class OrderController {
     void handleMenuPlaceOrder(ActionEvent event) throws IOException {
         order.placeOrder(order);
     }
+    
+     @FXML
+    void clearDrink(ActionEvent event) {
+        drinkSelectionToggle.selectToggle(null);
+    }
+
+    @FXML
+    void clearEntrée(ActionEvent event) {
+        entreeList.getSelectionModel().clearSelection();
+    }
+
+    @FXML
+    void clearSpecialRequests(ActionEvent event) {
+        specialRequestTF.clear();
+    }
 }
