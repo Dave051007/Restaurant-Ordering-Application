@@ -1,7 +1,11 @@
 package com.mycompany.restaurantorderingapplication;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -9,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 public class OrderController {
 
@@ -136,7 +141,18 @@ public class OrderController {
     }
 
     @FXML
-    void handlePlaceOrder(ActionEvent event) {
+    void handlePlaceOrder(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+        getClass().getResource("orderSummary.fxml")
+        );
         
+        Parent root = loader.load();
+        
+        Scene scene = new Scene(root);
+
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Order Summary");
+        stage.show();
     }
 }
